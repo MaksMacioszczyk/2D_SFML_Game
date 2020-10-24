@@ -1,0 +1,22 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
+class Animacja
+{
+public:
+	Animacja(Texture* texture,Vector2u imageCount,float switchTime);
+	~Animacja();
+
+	void Update(int row, float deltaTime, bool faceRight);
+
+public:
+	IntRect uvRect;
+private:
+	Vector2u imageCount;
+	Vector2u currentImage;
+
+	float totalTime;
+	float switchTime;
+};
+
