@@ -12,7 +12,7 @@ public:
 
 	void Update(float deltaTime);
 	void Draw(RenderWindow& window);
-
+	void resetPlayer(Vector2f newPosition);
 
 
 private:

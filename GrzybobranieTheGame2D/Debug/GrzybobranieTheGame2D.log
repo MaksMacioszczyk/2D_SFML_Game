@@ -1,2 +1,12 @@
-﻿  Player.cpp
+﻿  main.cpp
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(18,51): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(18,31): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
   GrzybobranieTheGame2D.vcxproj -> C:\Users\ma-ma\source\repos\2D_SFML_Game\Debug\GrzybobranieTheGame2D.exe

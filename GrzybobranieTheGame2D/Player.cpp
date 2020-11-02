@@ -59,3 +59,8 @@ void Player::Draw(RenderWindow& window)
 {
 	window.draw(body);
 }
+
+void Player::resetPlayer(Vector2f newPosition)
+{
+	body.setPosition(newPosition);
+}
