@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Menu.h"
+#include "WorldGen.h"
 
 using namespace sf;
 using namespace std;
@@ -9,20 +10,25 @@ using namespace std;
 int main()
 {
     float playerSpeed = 0.05f;
-    bool isMenuOpen = true;
+    bool isMenuOpen = true, isPlaying = false;
+    int punkty = 0;
     
     RenderWindow window(VideoMode(800, 600), "Grzybobranie 2D",Style::Close | Style::Resize);
     RectangleShape background;
     background.setSize(Vector2f(800, 600));
-   
+ 
+    
     Menu menu(window.getSize().x, window.getSize().y);
 
     Texture playerTexture;
     playerTexture.loadFromFile("Male 14-1.png");
 
+
     Texture background_texture;
     background_texture.loadFromFile("grassTexture.jpg",IntRect(0,0,800,600));
     
+    WorldGen world(30);
+
     background_texture.setRepeated(true);
    
     background.setTexture(&background_texture);
@@ -56,12 +62,18 @@ int main()
                         switch (menu.getPressedItem())
                         {
                         case 0:
+                            if(isPlaying == false)
+                            {
+                                break;
+                            }
                             cout << "Play button" << endl;
                             isMenuOpen = false;
                             break;
                         case 1:
                             cout << "New game button" << endl;
                             player.resetPlayer(Vector2f(20,20));
+                            isPlaying = true;
+                            world.generateTrees(window.getSize().x, window.getSize().y);
                             isMenuOpen = false;
                             break;
                         case 2:
@@ -82,7 +94,12 @@ int main()
                     case Keyboard::Escape:
                         isMenuOpen = true;
                         break;
-                
+                    case Keyboard::E:
+                        if (world.isIntersecting(player))
+                        {
+                            punkty += 10;
+                            cout << "Punkty: " << punkty << endl;
+                        }
                     }
                 }
                 break;
@@ -120,26 +137,11 @@ int main()
             window.draw(background);
             player.Update(deltaTime);       
             player.Draw(window);
+            world.Draw(window);
+           
         }
 
-        /*
-        if (Keyboard::isKeyPressed(Keyboard::Key::A))
-        {
-            player.move(-playerSpeed, 0.0f);
-        }
-        if (Keyboard::isKeyPressed(Keyboard::Key::D))
-        {
-            player.move(playerSpeed, 0.0f);
-        }
-        if (Keyboard::isKeyPressed(Keyboard::Key::W))
-        {
-            player.move(0.0f, -playerSpeed);
-        }
-        if (Keyboard::isKeyPressed(Keyboard::Key::S))
-        {
-            player.move(0.0f, playerSpeed);
-        }
-        */
+        
         
         
         window.display();

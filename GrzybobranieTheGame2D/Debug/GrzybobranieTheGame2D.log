@@ -1,12 +1,23 @@
-﻿  main.cpp
-C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(18,51): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+﻿  WorldGen.cpp
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\WorldGen.cpp(28,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\WorldGen.cpp(32,53): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
-              T=unsigned int
+              T=float
           ]
-C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(18,31): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\WorldGen.cpp(32,40): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
-              T=unsigned int
+              T=float
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\WorldGen.cpp(40,56): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\WorldGen.cpp(40,40): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
           ]
   GrzybobranieTheGame2D.vcxproj -> C:\Users\ma-ma\source\repos\2D_SFML_Game\Debug\GrzybobranieTheGame2D.exe

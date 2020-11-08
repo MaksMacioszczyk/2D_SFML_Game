@@ -64,3 +64,8 @@ void Player::resetPlayer(Vector2f newPosition)
 {
 	body.setPosition(newPosition);
 }
+
+FloatRect Player::getBounds()
+{
+	return body.getGlobalBounds();
+}
