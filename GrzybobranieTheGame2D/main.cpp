@@ -3,22 +3,26 @@
 #include "Player.h"
 #include "Menu.h"
 #include "WorldGen.h"
+#include "Atlas.h"
+#include "Zakonczenie.h"
 
 using namespace sf;
 using namespace std;
 
 int main()
 {
+    int numOfWinningPoints = 30;
     float playerSpeed = 0.05f;
-    bool isMenuOpen = true, isPlaying = false;
+    bool isMenuOpen = true, isPlaying = false, isAtlasOpen = false, isZakonczenieOpen = false;
     int punkty = 0;
     
     RenderWindow window(VideoMode(800, 600), "Grzybobranie 2D",Style::Close | Style::Resize);
     RectangleShape background;
     background.setSize(Vector2f(800, 600));
  
-    
+    Atlas atlas(window.getSize().x, window.getSize().y);
     Menu menu(window.getSize().x, window.getSize().y);
+    Zakonczenie zakonczenie(window.getSize().x, window.getSize().y);
 
     Texture playerTexture;
     playerTexture.loadFromFile("Male 14-1.png");
@@ -87,6 +91,27 @@ int main()
                         break;
                     }
                 }
+                else if (isAtlasOpen == true)
+                {
+                    switch (event.key.code)
+                    {
+                    case Keyboard::P:
+                        isAtlasOpen = false;
+                        break;
+                    }
+                }
+                else if (isZakonczenieOpen == true)
+                {
+                    switch (event.key.code)
+                    {
+                    case Keyboard::Return:
+                        isZakonczenieOpen = false;
+                        isMenuOpen = true;
+                        isPlaying = false;
+                        punkty = 0;
+                        break;
+                    }
+                }
                 else
                 {
                     switch (event.key.code)
@@ -100,21 +125,20 @@ int main()
                             punkty += 10;
                             cout << "Punkty: " << punkty << endl;
                         }
+                        if (punkty == numOfWinningPoints)
+                        {
+                            isZakonczenieOpen = true;
+                        }
+                        break;
+                    case Keyboard::P:
+                        isAtlasOpen = true;
+                        break;
                     }
                 }
                 break;
             case Event::Closed:
                 window.close();
-                break;
-            case Event::Resized:
-                cout <<"New window width:" << event.size.width <<" New window height:"<< event.size.height << endl;
-                break;
-            case Event::TextEntered:
-                if (event.text.unicode < 128)
-                {
-                    printf("%c", event.text.unicode);
-                }
-               
+                break;                     
             }
 
             if (event.type == event.Closed)
@@ -130,6 +154,16 @@ int main()
             
             window.clear(Color::Black);
             menu.draw(window);
+        }
+        else if (isAtlasOpen == true)
+        {
+            window.clear(Color::Blue);
+            atlas.draw(window);
+        }
+        else if(isZakonczenieOpen == true)
+        {
+            window.clear(Color::Blue);
+            zakonczenie.draw(window);
         }
         else
         {

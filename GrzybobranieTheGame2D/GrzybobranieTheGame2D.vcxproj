@@ -145,16 +145,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animacja.cpp" />
+    <ClCompile Include="Atlas.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="WorldGen.cpp" />
+    <ClCompile Include="Zakonczenie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacja.h" />
+    <ClInclude Include="Atlas.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="WorldGen.h" />
+    <ClInclude Include="Zakonczenie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
