@@ -20,13 +20,18 @@ int main()
     RectangleShape background;
     background.setSize(Vector2f(800, 600));
  
+    Texture sky;
+    sky.loadFromFile("sky.jpg");
+
     Atlas atlas(window.getSize().x, window.getSize().y);
-    Menu menu(window.getSize().x, window.getSize().y);
+    Menu menu(window.getSize().x, window.getSize().y,&sky);
     Zakonczenie zakonczenie(window.getSize().x, window.getSize().y);
 
     Texture playerTexture;
     playerTexture.loadFromFile("Male 14-1.png");
 
+
+    
 
     Texture background_texture;
     background_texture.loadFromFile("grassTexture.jpg",IntRect(0,0,800,600));
