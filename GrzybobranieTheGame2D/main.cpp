@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include "Player.h"
 #include "Menu.h"
@@ -16,6 +17,12 @@ int main()
     bool isMenuOpen = true, isPlaying = false, isAtlasOpen = false, isZakonczenieOpen = false;
     int punkty = 0;
     
+    SoundBuffer menuMusic;
+    menuMusic.loadFromFile("menu.wav");
+
+    SoundBuffer gameMusic;
+    gameMusic.loadFromFile("gra.wav");
+
     RenderWindow window(VideoMode(800, 600), "Grzybobranie 2D",Style::Close | Style::Resize);
     RectangleShape background;
     background.setSize(Vector2f(800, 600));
@@ -46,7 +53,12 @@ int main()
 
     float deltaTime = 0.0f;
     Clock clock;
-  
+    
+    Sound sound;
+    sound.setBuffer(menuMusic);
+    sound.play();
+
+
     while (window.isOpen())
     {
         deltaTime = clock.restart().asSeconds();
@@ -73,15 +85,21 @@ int main()
                         case 0:
                             if(isPlaying == false)
                             {
+                                sound.setBuffer(gameMusic);
+                                sound.play();
                                 break;
                             }
                             cout << "Play button" << endl;
+                            sound.setBuffer(gameMusic);
+                            sound.play();
                             isMenuOpen = false;
                             break;
                         case 1:
                             cout << "New game button" << endl;
                             player.resetPlayer(Vector2f(20,20));
                             isPlaying = true;
+                            sound.setBuffer(gameMusic);
+                            sound.play();
                             world.generateTrees(window.getSize().x, window.getSize().y);
                             isMenuOpen = false;
                             break;
@@ -123,6 +141,8 @@ int main()
                     {
                     case Keyboard::Escape:
                         isMenuOpen = true;
+                        sound.setBuffer(menuMusic);
+                        sound.play();
                         break;
                     case Keyboard::E:
                         if (world.isIntersecting(player))
