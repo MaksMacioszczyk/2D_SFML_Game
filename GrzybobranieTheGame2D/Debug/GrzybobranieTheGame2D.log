@@ -1,7 +1,2 @@
-﻿  Zakonczenie.cpp
-C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\Zakonczenie.cpp(19,35): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
+﻿  Menu.cpp
   GrzybobranieTheGame2D.vcxproj -> C:\Users\ma-ma\source\repos\2D_SFML_Game\Debug\GrzybobranieTheGame2D.exe

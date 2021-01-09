@@ -13,7 +13,8 @@ using namespace std;
 
 int main()
 {
-    int numOfWinningPoints = 30;
+    srand(time(NULL));
+    int numOfWinningPoints = (rand() % 80) + 20;
     float playerSpeed = 0.05f;
     bool isMenuOpen = true, isPlaying = false, isAtlasOpen = false, isZakonczenieOpen = false;
     int punkty = 0;
@@ -23,6 +24,7 @@ int main()
     {
 
     }
+    int grzyb;
 
     Text punkty_tekst;
     punkty_tekst.setFont(font);
@@ -166,20 +168,25 @@ int main()
                         sound.play();
                         break;
                     case Keyboard::E:
-                        if (world.isIntersecting(player))
+                        grzyb = world.isIntersecting(player);
+                        if (grzyb > 0)
                         {
+                            if(grzyb == 1)
                             punkty += 10;
+                            if (grzyb == 2)
+                            punkty += -5;
                             punkty_tekst.setString("Punkty: " + to_string(punkty) + " / " + to_string(numOfWinningPoints));
                             backSound.setBuffer(pickup_sound);
                             backSound.play();
 
                             cout << "Punkty: " << punkty << endl;
                         }
-                        if (punkty == numOfWinningPoints)
+                        if (punkty >= numOfWinningPoints)
                         {
                             
                             isZakonczenieOpen = true;
                             backSound.setBuffer(winSound);
+                            backSound.setVolume(30);
                             backSound.play();
                         }
                         break;
