@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#define MAX_NUM_OF_ITEMS 3
+#define MAX_NUM_OF_ITEMS 5
 
 using namespace sf;
 

@@ -16,11 +16,11 @@ Atlas::Atlas(float width, float height, Texture* sky)
 	opis.setFont(font);
 
 	nazwa.setFillColor(Color::Red);
-	nazwa.setString("Muchomor");
+	nazwa.setString("HELP");
 	nazwa.setPosition(Vector2f(width / 3, 50));
 
 	opis.setFillColor(Color::Black);
-	opis.setString("Dorosly muchomor czerwony ma okolo 20 cm\n wysokosci trzonka i tyle samo srednicy kapelusza.\n Kapelusz u mlodych okazow ma ksztalt kuli, \npotem stopniowo siê splaszcza, az \ndo wglebionej formy przypominajacej nieco polmisek. \nBlaszki sa bladozolte, wpadaj¹ce w biel.\n Cechuja sie gestym rozmieszczeniem i sa \nwolne, tzn. nie sa przymocowane do trzonka.");
+	opis.setString("W,S,A,D - sterowanie\n E - podnies grzyba\n Gra polega na zebraniu odpowieniej ilosci punktow \nilosc punktow jest generowana losowo. \nPo uzyskaniu odpowiedniej ilosci punktow \nuzytkownik moze stworzyc nowy poziom \n");
 	opis.setPosition(Vector2f(width / 10, 100));
 }
 

@@ -149,6 +149,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PoziomTrudnosci.cpp" />
+    <ClCompile Include="TabelaWynikow.cpp" />
     <ClCompile Include="WorldGen.cpp" />
     <ClCompile Include="Zakonczenie.cpp" />
   </ItemGroup>
@@ -157,6 +159,8 @@
     <ClInclude Include="Atlas.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PoziomTrudnosci.h" />
+    <ClInclude Include="TabelaWynikow.h" />
     <ClInclude Include="WorldGen.h" />
     <ClInclude Include="Zakonczenie.h" />
   </ItemGroup>

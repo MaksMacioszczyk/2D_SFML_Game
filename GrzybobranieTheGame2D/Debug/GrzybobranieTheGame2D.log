@@ -1,2 +1,45 @@
-﻿  Menu.cpp
+﻿  main.cpp
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\PoziomTrudnosci.h(5,1): warning C4005: "MAX_NUM_OF_ITEMS": ponowna definicja makra
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\Menu.h(5): message : zobacz poprzednią definicję „MAX_NUM_OF_ITEMS”
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(17,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(56,53): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(56,33): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(57,51): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(57,31): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(58,65): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(58,45): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(59,67): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\ma-ma\source\repos\2D_SFML_Game\GrzybobranieTheGame2D\main.cpp(59,47): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
   GrzybobranieTheGame2D.vcxproj -> C:\Users\ma-ma\source\repos\2D_SFML_Game\Debug\GrzybobranieTheGame2D.exe

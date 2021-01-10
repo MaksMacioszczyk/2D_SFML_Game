@@ -6,6 +6,7 @@
 #include "WorldGen.h"
 #include "Atlas.h"
 #include "Zakonczenie.h"
+#include "PoziomTrudnosci.h"
 #include <string>
 
 using namespace sf;
@@ -16,8 +17,9 @@ int main()
     srand(time(NULL));
     int numOfWinningPoints = (rand() % 80) + 20;
     float playerSpeed = 0.05f;
-    bool isMenuOpen = true, isPlaying = false, isAtlasOpen = false, isZakonczenieOpen = false;
+    bool isMenuOpen = true, isPlaying = false, isAtlasOpen = false, isZakonczenieOpen = false, isPoziomOpen = false, isTabelaOpen = false;
     int punkty = 0;
+    int poziomTrudnosci = 0;
 
     Font font;
     if (!font.loadFromFile("arial.ttf"))
@@ -54,6 +56,8 @@ int main()
     Atlas atlas(window.getSize().x, window.getSize().y, &sky);
     Menu menu(window.getSize().x, window.getSize().y,&sky);
     Zakonczenie zakonczenie(window.getSize().x, window.getSize().y, &sky);
+    PoziomTrudnosci pozTrudno(window.getSize().x, window.getSize().y, &sky);
+
 
     Texture playerTexture;
     playerTexture.loadFromFile("Male 14-1.png");
@@ -115,7 +119,7 @@ int main()
                             break;
                         case 1:
                             cout << "New game button" << endl;
-                            player.resetPlayer(Vector2f(20,20));
+                            player.resetPlayer(Vector2f(100,50));
                             isPlaying = true;
                             punkty = 0;
                             punkty_tekst.setString("Punkty: " + to_string(punkty) + " / " + to_string(numOfWinningPoints));
@@ -125,6 +129,15 @@ int main()
                             isMenuOpen = false;
                             break;
                         case 2:
+                            isTabelaOpen = true;
+                            isMenuOpen = false;
+                            break;
+
+                        case 3:
+                            isPoziomOpen = true;
+                            isMenuOpen = false;
+                            break;
+                        case 4:
                             cout << "Quit button" << endl;
                             window.close();
                             break;
@@ -135,11 +148,49 @@ int main()
                         break;
                     }
                 }
+                else if (isPoziomOpen)
+                {
+                    switch (event.key.code)
+                    {
+                    case Keyboard::Escape:
+                        isPoziomOpen = false;
+                        isMenuOpen = true;
+                        break;
+                    case Keyboard::Up:
+                        pozTrudno.MoveUp();
+                        break;
+                    case Keyboard::Down:
+                        pozTrudno.MoveDown();
+                        break;
+                    case Keyboard::Return:
+                        switch (pozTrudno.getPressedItem())
+                        {
+                        case 0:
+                            poziomTrudnosci = 0;
+                           
+                            isPoziomOpen = false;
+                            isMenuOpen = true;
+                            break;
+                        case 1:
+                            poziomTrudnosci = 1;
+                            
+                            isPoziomOpen = false;
+                            isMenuOpen = true;
+                            break;
+                        case 2:
+                            poziomTrudnosci = 2;
+                           
+                            isPoziomOpen = false;
+                            isMenuOpen = true;
+                            break;
+                        }
+                    }
+                }
                 else if (isAtlasOpen == true)
                 {
                     switch (event.key.code)
                     {
-                    case Keyboard::P:
+                    case Keyboard::F1:
                         isAtlasOpen = false;
                         break;
                     }
@@ -155,6 +206,18 @@ int main()
                         punkty = 0;
                         sound.setBuffer(menuMusic);
                         sound.play();
+                        break;
+                    }
+                }
+                
+                else if (isTabelaOpen)
+                {
+                    switch (event.key.code)
+                    {
+                    case Keyboard::Escape:
+                        isMenuOpen = true;
+                        isTabelaOpen = false;
+                       
                         break;
                     }
                 }
@@ -190,7 +253,7 @@ int main()
                             backSound.play();
                         }
                         break;
-                    case Keyboard::P:
+                    case Keyboard::F1:
                         isAtlasOpen = true;
                         break;
                     }
@@ -224,6 +287,15 @@ int main()
         {
             window.clear(Color::Blue);
             zakonczenie.draw(window);
+        }
+        else if (isPoziomOpen)
+        {
+            window.clear(Color::Blue);
+            pozTrudno.draw(window);
+        }
+        else if (isTabelaOpen)
+        {
+
         }
         else
         {

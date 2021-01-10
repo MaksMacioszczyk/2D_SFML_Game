@@ -30,9 +30,21 @@ Menu::Menu(float width, float height, Texture* sky)
 
 	menu[2].setFont(font);
 	menu[2].setFillColor(Color(179, 81, 20));
-	menu[2].setString("Wyjdz");
+	menu[2].setString("Tabela wynikow");
 	menu[2].setCharacterSize(24);
 	menu[2].setPosition(Vector2f(width / 5, height / (MAX_NUM_OF_ITEMS + 1) * 3));
+
+	menu[3].setFont(font);
+	menu[3].setFillColor(Color(179, 81, 20));
+	menu[3].setString("Poziom trudnosci");
+	menu[3].setCharacterSize(24);
+	menu[3].setPosition(Vector2f(width / 5, height / (MAX_NUM_OF_ITEMS + 1) * 4));
+
+	menu[4].setFont(font);
+	menu[4].setFillColor(Color(179, 81, 20));
+	menu[4].setString("Wyjdz");
+	menu[4].setCharacterSize(24);
+	menu[4].setPosition(Vector2f(width / 5, height / (MAX_NUM_OF_ITEMS + 1) * 5));
 
 	selectedItemIndex = 0;
 }
